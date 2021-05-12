@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+        <title>Vue Dischi Musicali</title>
+    </head>
+    <body>
+        <div id="app">
+
+            <div class="container">
+
+                    <h1>MY ALBUMS</h1>
+
+                <div class="wrap_copertina">
+
+                    <div class="box_album" v-for="item of albumList">
+                        <div>
+                            <img :src="item.poster" alt="" class="copertina">
+                        </div>
+                            <span>{{item.title}}</span>
+                            <span>{{item.author}}</span>
+                            <span>{{item.genre}}</span>
+                            <span>{{item.year}}</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
