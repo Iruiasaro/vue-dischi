@@ -12,16 +12,21 @@
         <div id="app">
 
             <div class="container">
-                <select class="select_age" name="ordinamento" v-model="filter">
+                <select class="selettore" name="genre" v-model="selected">
+                    <option :value="genre" v-for="genre in tipologia">{{genre}}</option>
+                  </select>
+
+                <select class="selettore" name="ordinamento" v-model="filter">
                     <option value="filtro">Ordina per anno di uscita</option>
                     <option value="ancient">Dal più datato al più recente </option>
                     <option value="young">Dal più recente al più datato </option>
                   </select>
+
                     <h1>MY ALBUMS</h1>
 
                 <div class="wrap_copertina">
 
-                    <div class="box_album" v-for="item of albumSort">
+                    <div class="box_album" v-for="item of albumSort" v-if="item.genre.includes(currentGenre())">
                         <div>
                             <img :src="item.poster" alt="" class="copertina">
                         </div>
