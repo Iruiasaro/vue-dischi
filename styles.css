@@ -33,3 +33,10 @@
     padding: 14px;
     margin: 8px;
 }
+
+.select_age {
+    padding: 20px;
+    font-size: 16px;
+    background-color: rgb(197, 197, 197);
+    font-weight: 900;
+}

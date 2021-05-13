@@ -5,9 +5,13 @@ var app = new Vue({
 
     data: {
         albumList: [],
+        filter: 'filtro',
+        newAlbum: [],
+        oldAlbum: []
     },
 
     methods: {
+        
     },
 
     mounted() {
@@ -15,5 +19,33 @@ var app = new Vue({
             .then((resp) => {
                 this.albumList = resp.data.response;
             });
+    },
+
+    computed: {
+        albumSort: function () {
+          if (this.filter == 'ancient') {
+
+            this.newAlbum = [...this.albumList];
+            this.newAlbum.sort(function(x,y) 
+
+            {return x.year - y.year;})
+
+            return this.newAlbum;
+
+          } else if (this.filter == 'young') {
+
+            this.oldAlbum = [...this.albumList];
+
+            this.oldAlbum.sort(function(x,y) 
+
+            {return y.year - x.year;})
+
+            return this.oldAlbum;
+            
+          } else {
+              
+            return this.albumList;
+          }
+        }
     }
 });
